@@ -1,0 +1,12 @@
+{
+    "name": "abalone",
+    "task_type": "binclass", 
+    "header": "infer",
+    "column_names": null,
+    "num_col_idx": ["Length", "Diameter", "Height", "Whole_weight", "Shucked_weight", "Viscera_weight", "Shell_weight"],
+    "cat_col_idx": ["Sex"],
+    "target_col_idx": ["Rings"],
+    "file_type": "csv",
+    "data_path": "data/abalone/abalone.csv",
+    "test_path": null
+}
