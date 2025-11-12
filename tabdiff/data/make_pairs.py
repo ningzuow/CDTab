@@ -235,7 +235,7 @@ def main():
     deterministic_keys = sorted(list(nn_map.keys()))
 
     # 生成固定数量的随机 batch（200 个）
-    num_batches = 10
+    num_batches = 20
 
     for b_id in range(num_batches):
     # 从少数类中随机选出 2 * pairs 个（anchor+pos 各一）
