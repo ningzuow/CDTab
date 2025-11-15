@@ -24,7 +24,7 @@ FULL_TRAIN_CSV = f"data/{DATANAME}/train.csv"   # 用它来统计每个类别列
 BATCH_DIR = "contrastive_batches"               # 你保存 batch_000.csv 的目录
 BATCH_GLOB = os.path.join(BATCH_DIR, f"{DATANAME}_batch_*.csv")
 
-EPOCHS = 20
+EPOCHS = 40
 LR = 1e-3
 WEIGHT_DECAY = 0.0
 BATCH_TEMPERATURE = 0.07      # tau,InfoNCE温度
@@ -134,6 +134,8 @@ def build_global_category_encoders(train_csv, info):
 
 
 # InfoNCE：单个 query 对一组 keys（第0个为正，其余为负）
+# 这个函数中有一个[None]的操作，此操作前是一个标量（零维张量），此操作后才是向量，以符合 cross_entropy 的输入要求
+# 加一个维度
 def info_nce_one(q, k_pos, k_neg, tau):
     """
     q: [C]
@@ -213,8 +215,7 @@ def train():
             x_cat_codes = x_cat_codes.to(DEVICE)
             neg_idx = neg_idx.to(DEVICE)
             x_cat_oh = codes_to_onehot(x_cat_codes, Ks).to(DEVICE)
-
-
+            
             # 启用训练模式，更新参数
             model_q.train()
             # 关闭训练行为，固定参数
@@ -244,6 +245,8 @@ def train():
                 loss_pa = info_nce_one(q2, k1, k_neg, BATCH_TEMPERATURE)
                 loss_total = loss_total + (loss_ap + loss_pa)
 
+
+            loss_total = loss_total / len(pairs)
             # 6) 反传，只更新主网
             opt.zero_grad()
             loss_total.backward()
