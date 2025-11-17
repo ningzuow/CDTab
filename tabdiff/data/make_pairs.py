@@ -110,23 +110,23 @@ def find_minority_label(y: pd.Series) -> Tuple[object, object]:
 我们仅用少数类内部的最近邻，避免把多数类当“正样本”
 这里使用欧几里得距离（数值标准化 + OHE 类别）
 """
-def build_1nn_on_minority(X_embed: np.ndarray, minority_idx: np.ndarray) -> Dict[int, int]:
+def build_1nn_within_class(X_embed: np.ndarray, class_idx: np.ndarray) -> Dict[int, int]:
+    """
+    在某一类内部做 1-NN（排除自身），返回: 全局行号 -> 最近邻的全局行号
+    """
+    X_cls = X_embed[class_idx]
 
-    # 映射到“少数类子空间”的行号与向量
-    X_min = X_embed[minority_idx]
-    
-    # n_neighbors=2：第一个是自身，第二个才是最近的其他样本
     nn = NearestNeighbors(n_neighbors=2, metric="euclidean")
-    nn.fit(X_min)
-    dist, ind = nn.kneighbors(X_min, return_distance=True)
-    
-    # ind 的形状 (n_minority, 2)，ind[i, 0] == i（自身），ind[i, 1] 是最近邻在少数类子空间的下标
+    nn.fit(X_cls)
+    dist, ind = nn.kneighbors(X_cls, return_distance=True)
+
     mapping = {}
-    for i_local, row_global in enumerate(minority_idx):
-        nn_local = ind[i_local, 1]
-        nn_global = minority_idx[nn_local]
+    for i_local, row_global in enumerate(class_idx):
+        nn_local = ind[i_local, 1]          # 第一个是自己，第二个才是最近邻
+        nn_global = class_idx[nn_local]
         mapping[int(row_global)] = int(nn_global)
     return mapping
+
 
 
 # 从“1-NN 字典”里，按顺序挑出前 k 个样本对（anchor → positive）
@@ -158,31 +158,37 @@ def sample_majority(majority_idx: np.ndarray, n_neg: int, seed: int, batch_id: i
 - __orig_row: 原始行号（便于回溯）
 """
 def assemble_batch(df: pd.DataFrame,
-                   pairs: List[Tuple[int, int]],
-                   neg_ids: List[int]) -> pd.DataFrame:
-
+                   min_pairs: List[Tuple[int, int]],
+                   maj_pairs: List[Tuple[int, int]]) -> pd.DataFrame:
+    """
+    将少数类 / 多数类的正样本对一起组成一个 batch。
+    每个 pair 生成两行数据，并打上 __pair_id 与 __orig_row 方便后续计算 loss。
+    不再使用 __role / __class。
+    """
     rows = []
-    for pid, (a, p) in enumerate(pairs):
-        for rid, role in [(a, "anchor"), (p, "pos")]:
+    # 少数类 pair 先编号
+    pid = 0
+    for (a, p) in min_pairs:
+        for rid in (a, p):
             row = df.loc[rid].copy()
-            row["__role"] = role
             row["__pair_id"] = pid
-            row["__class"] = "minority"
             row["__orig_row"] = rid
             rows.append(row)
-    
-    for rid in neg_ids:
-        row = df.loc[rid].copy()
-        row["__role"] = "neg"
-        row["__pair_id"] = -1
-        row["__class"] = "majority"
-        row["__orig_row"] = rid
-        rows.append(row)
+        pid += 1
+
+    # 多数类 pair 接着编号
+    for (a, p) in maj_pairs:
+        for rid in (a, p):
+            row = df.loc[rid].copy()
+            row["__pair_id"] = pid
+            row["__orig_row"] = rid
+            rows.append(row)
+        pid += 1
+
     batch_df = pd.DataFrame(rows)
-    
-    # 打乱一下行顺序，避免固定排列产生学习偏置；如需稳定顺序可注释下一行
     batch_df = batch_df.sample(frac=1.0, random_state=0).reset_index(drop=True)
     return batch_df
+
 
 
 def main():
@@ -217,46 +223,45 @@ def main():
     min_idx = idx_all[min_mask]
     maj_idx = idx_all[maj_mask]
 
-    nn_map = build_1nn_on_minority(X_embed, min_idx)
-    deterministic_keys = sorted(list(nn_map.keys()))
+    # 为少数类 / 多数类分别建立“类内 1-NN”映射
+    nn_min = build_1nn_within_class(X_embed, min_idx)
+    nn_maj = build_1nn_within_class(X_embed, maj_idx)
 
-    # (4) 选择前 K=16 个 key 生成有向对（anchor→pos）
-    # === 新增：计算可生成的 batch 数 ===
-    total_minority = len(deterministic_keys)
-    batch_size_pairs = args.pairs                 # 每批 16 对（32 少数类样本）
-    num_batches = int(np.ceil(total_minority / batch_size_pairs))
+    min_keys = sorted(list(nn_min.keys()))
+    maj_keys = sorted(list(nn_maj.keys()))
 
-    print(f"[INFO] 共 {total_minority} 个少数类样本，可生成 {num_batches} 个 batch。")
 
-    os.makedirs(args.out_dir, exist_ok=True)
-    with open(os.path.join(args.out_dir, f"{args.dataname}_minority_1nn.json"), "w", encoding="utf-8") as f:
-        json.dump(nn_map, f, ensure_ascii=False, indent=2)
-
-    deterministic_keys = sorted(list(nn_map.keys()))
-
-    # 生成固定数量的随机 batch（200 个）
+        # 生成固定数量的随机 batch（20 个）
     num_batches = 20
 
+    # 每个类在一个 batch 中的 pair 数
+    pairs_per_class = args.pairs  # 建议你用 --pairs 1024，则 batch_size = 4 * 1024 = 4096
+
     for b_id in range(num_batches):
-    # 从少数类中随机选出 2 * pairs 个（anchor+pos 各一）
-        key_chunk = random.sample(deterministic_keys, k=min(args.pairs, len(deterministic_keys)))
+        # 随机从少数类 key 中选 pairs_per_class 个作为 anchor
+        cur_min_keys = random.sample(
+            min_keys,
+            k=min(pairs_per_class, len(min_keys))
+        )
+        min_pairs = pick_k_pairs(nn_min, k=len(cur_min_keys), deterministic_keys=cur_min_keys)
 
+        # 随机从多数类 key 中选 pairs_per_class 个作为 anchor
+        cur_maj_keys = random.sample(
+            maj_keys,
+            k=min(pairs_per_class, len(maj_keys))
+        )
+        maj_pairs = pick_k_pairs(nn_maj, k=len(cur_maj_keys), deterministic_keys=cur_maj_keys)
 
-        # 选取当前批次的 anchor→positive 对
-        pairs = pick_k_pairs(nn_map, k=len(key_chunk), deterministic_keys=key_chunk)
+        # 组装 batch（少数 / 多数类的 pairs 一起）
+        batch_df = assemble_batch(df, min_pairs, maj_pairs)
 
-        # 从多数类里按顺序采样（循环复用）
-        neg_ids = sample_majority(maj_idx, n_neg=args.neg, seed=args.seed, batch_id=b_id)
-
-
-        # 组装 batch
-        batch_df = assemble_batch(df, pairs, neg_ids)
+        print(f"[INFO] batch {b_id}: size={len(batch_df)} (minor pairs={len(min_pairs)}, major pairs={len(maj_pairs)})")
 
         # 保存当前 batch
         out_csv = os.path.join(args.out_dir, f"{args.dataname}_batch_{b_id:03d}.csv")
         batch_df.to_csv(out_csv, index=False)
-
         print(f"[OK] 保存 batch {b_id+1}/{num_batches}: {out_csv}")
+
 
 
 

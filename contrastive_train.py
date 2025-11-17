@@ -58,21 +58,6 @@ def codes_to_onehot(x_cat_codes: torch.Tensor, Ks):
     return torch.cat(blocks, dim=1).float()
 
 
-# ---------- 新增：从完整 train.csv 建立每个类别列的全局映射 ----------
-def build_global_category_encoders(train_csv, info):
-    """为每个类别列建立 '类别名 -> 整数索引' 的全局映射"""
-    df_full = pd.read_csv(train_csv)
-    cat_idx = info["cat_col_idx"]
-    encoders = []
-    for idx in cat_idx:
-        col = df_full.iloc[:, idx].astype("category")
-        mapping = {cat: i for i, cat in enumerate(col.cat.categories)}
-        encoders.append(mapping)
-    return encoders
-
-
-
-
 # 工具：把一个 batch CSV 转成 (x_num, x_cat_codes, pairs, neg_idx) 
 """
     返回：
@@ -82,19 +67,29 @@ def build_global_category_encoders(train_csv, info):
       neg_idx: LongTensor [N_neg]
 """
 def load_contrastive_batch(batch_csv, info, encoders):
-    
+    """
+    读取一个 batch：
+      - x_num: FloatTensor [N, d_num]
+      - x_cat_codes: LongTensor [N, n_cat]
+      - pairs: list of (idx_i, idx_j)，同一 pair_id 的两行
+      - labels: LongTensor [N]，原始标签（用来区分类别，构造负样本）
+    """
     df = pd.read_csv(batch_csv)
 
-    # 丢掉我们自己加的辅助列之后再做编码
-    meta_cols = ["__role", "__pair_id", "__class", "__orig_row"]
-    assert all(c in df.columns for c in meta_cols), "batch CSV 缺少辅助标签列"
+    # 新的辅助列：只有 pair_id / orig_row
+    meta_cols = ["__pair_id", "__orig_row"]
+    assert all(c in df.columns for c in meta_cols), "batch CSV 缺少 __pair_id / __orig_row 列"
+
     info_num = info["num_col_idx"]
     info_cat = info["cat_col_idx"]
+    target_idx = info["target_col_idx"]
+    assert len(target_idx) == 1, "当前脚本假定是单一目标列"
+    target_idx = target_idx[0]
 
-    # 数值
+    # 数值特征
     x_num = torch.tensor(df.iloc[:, info_num].values, dtype=torch.float32)
 
-    # 使用全局映射编码每列（避免 batch 缺类导致编码不一致）
+    # 类别特征：用全局 encoder 做整数映射
     x_cat_list = []
     for i, col_idx in enumerate(info_cat):
         mapping = encoders[i]
@@ -102,22 +97,33 @@ def load_contrastive_batch(batch_csv, info, encoders):
         x_cat_list.append(torch.tensor(col.values, dtype=torch.int64).unsqueeze(1))
     x_cat_codes = torch.cat(x_cat_list, dim=1)
 
+        # 标签（用来区分同类/异类），先转成整数编码
+    y_col = df.iloc[:, target_idx]
+    if not pd.api.types.is_integer_dtype(y_col.dtype):
+        # 非整数类型（大概率是字符串），先转成category再取codes
+        y_codes = y_col.astype("category").cat.codes
+    else:
+        # 本来就是整数，直接用
+        y_codes = y_col.astype(int)
 
-    # 组正样本对：每个 pair_id 恰好有 anchor 和 pos
-    anchors = df.index[df["__role"] == "anchor"].tolist()
-    pos_map = df[df["__role"] == "pos"].set_index("__pair_id").index.to_series()
-    # 用 pair_id 对齐 anchor 和 pos
+    labels = torch.tensor(y_codes.values, dtype=torch.long)
+
+
+    # 从 __pair_id 构造正样本对：每个 pair_id 刚好两行
     pairs = []
-    for rid in anchors:
-        pid = int(df.loc[rid, "__pair_id"])
-        # 找到同 pid 的正样本的行号
-        pos_rid = int(df.index[(df["__pair_id"] == pid) & (df["__role"] == "pos")][0])
-        pairs.append((rid, pos_rid))
+    group_dict = df.groupby("__pair_id").indices  # dict: pid -> array(row_indices)
+    for pid, idxs in group_dict.items():
+        idxs = list(idxs)
+        if len(idxs) != 2:
+            # 如有异常，可以选择 raise 或跳过；这里直接跳过异常 pair
+            continue
+        a_idx, p_idx = int(idxs[0]), int(idxs[1])
+        # 理论上这两行应该同类，可以加个断言更稳：
+        # assert labels[a_idx] == labels[p_idx]
+        pairs.append((a_idx, p_idx))
 
-    # 负样本索引
-    neg_idx = torch.tensor(df.index[df["__role"] == "neg"].tolist(), dtype=torch.long)
+    return x_num, x_cat_codes, pairs, labels
 
-    return x_num, x_cat_codes, pairs, neg_idx
 
 # ---------- 新增：从完整 train.csv 建立每个类别列的全局映射 ----------
 def build_global_category_encoders(train_csv, info):
@@ -130,8 +136,6 @@ def build_global_category_encoders(train_csv, info):
         mapping = {cat: i for i, cat in enumerate(col.cat.categories)}
         encoders.append(mapping)
     return encoders
-
-
 
 # InfoNCE：单个 query 对一组 keys（第0个为正，其余为负）
 # 这个函数中有一个[None]的操作，此操作前是一个标量（零维张量），此操作后才是向量，以符合 cross_entropy 的输入要求
@@ -210,10 +214,10 @@ def train():
         print(f"\n=== Epoch {epoch+1}/{EPOCHS} ===")
         for bpath in batch_files:
             # 3) 读取一个 batch
-            x_num, x_cat_codes, pairs, neg_idx = load_contrastive_batch(bpath, info, encoders)
+            x_num, x_cat_codes, pairs, labels = load_contrastive_batch(bpath, info, encoders)
+            labels = labels.to(DEVICE)
             x_num = x_num.to(DEVICE)
             x_cat_codes = x_cat_codes.to(DEVICE)
-            neg_idx = neg_idx.to(DEVICE)
             x_cat_oh = codes_to_onehot(x_cat_codes, Ks).to(DEVICE)
             
             # 启用训练模式，更新参数
@@ -224,29 +228,44 @@ def train():
             # 4) 一次性前向：主网给 query 向量 p；动量网给 key 向量 z
             with torch.no_grad():
                 z_all = model_k(x_num, x_cat_oh)             # [N, C] keys
-            p_all, _ = model_q(x_num, x_cat_oh)               # [N, C] queries
+            p_all, _ = model_q(x_num, x_cat_oh)               # [N, C] queries                            # 空张量
 
-            # 5) 逐对累加 InfoNCE（对称交叉）
             loss_total = torch.zeros((), device=DEVICE)
-            if neg_idx.numel() > 0:
-                k_neg = z_all[neg_idx]                           # [M, C]
-            else:
-                k_neg = z_all[:0]                                # 空张量
 
             for a_idx, p_idx in pairs:
                 a_idx = int(a_idx); p_idx = int(p_idx)
+
+                # 这对样本的类别（两者应相同）
+                cls = labels[a_idx]
+                # 构造“异类样本”的 mask：同 batch 中所有 label != cls 的样本
+                neg_mask = (labels != cls)
+                neg_indices = torch.nonzero(neg_mask, as_tuple=False).squeeze(1)  # [M]
+
+                # 理论上 batch 是 1:1，两类都有，一定有负样本；稳一点可以加判断
+                if neg_indices.numel() == 0:
+                    continue  # 没有负样本就跳过这一对
+
+                k_neg = z_all[neg_indices]   # [M, C]
+
                 q1 = p_all[a_idx]    # a -> query (主网)
                 q2 = p_all[p_idx]    # p -> query (主网)
                 k1 = z_all[a_idx]    # a -> key   (动量网)
                 k2 = z_all[p_idx]    # p -> key   (动量网)
 
-                # 对称：q(a) 对 k(p)，以及 q(p) 对 k(a)
+                # 对称 InfoNCE：
+                #   正样本 = 这一对里的另一半
+                #   负样本 = 当前 batch 中所有异类样本
                 loss_ap = info_nce_one(q1, k2, k_neg, BATCH_TEMPERATURE)
                 loss_pa = info_nce_one(q2, k1, k_neg, BATCH_TEMPERATURE)
+
                 loss_total = loss_total + (loss_ap + loss_pa)
 
+            # 防御：防止没有有效 pair
+            if len(pairs) > 0:
+                loss_total = loss_total / len(pairs)
+            else:
+                loss_total = torch.zeros((), device=DEVICE)
 
-            loss_total = loss_total / len(pairs)
             # 6) 反传，只更新主网
             opt.zero_grad()
             loss_total.backward()
@@ -260,7 +279,7 @@ def train():
 
             global_step += 1
             print(f"[step {global_step:05d}] {os.path.basename(bpath)}  pairs={len(pairs)}  "
-                  f"neg={int(neg_idx.numel())}  loss={loss_total.item():.4f}")
+                  f"loss={loss_total.item():.4f}")
 
     # 8) 训练结束，保存主网权重
     os.makedirs("ckpts", exist_ok=True)
