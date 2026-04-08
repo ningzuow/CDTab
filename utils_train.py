@@ -29,8 +29,24 @@ class TabDiffDataset(Dataset):
         self.data_dir = data_dir
         self.info = info
         self.isTrain = isTrain
+        self.dataname = dataname
 
-        X_num, X_cat, categories, d_numerical, num_inverse, int_inverse, cat_inverse = preprocess(data_dir, y_only, dequant_dist, int_dequant_factor, task_type = info['task_type'], inverse=True)
+        X_num, X_cat, categories, d_numerical, num_inverse, int_inverse, cat_inverse, y = preprocess(
+            data_dir, y_only, dequant_dist, int_dequant_factor,
+            task_type=info['task_type'], inverse=True
+        )
+
+        raw_y = np.array(y['train'] if isTrain else y['test']).reshape(-1)
+        raw_y = raw_y.astype(str)
+
+        raw_y = np.char.strip(raw_y)
+
+        y_encoded = np.zeros_like(raw_y, dtype=np.int64)
+
+        y_encoded[raw_y == ">50K"] = 1
+        y_encoded[raw_y == "<=50K"] = 0
+
+        self.y = torch.tensor(y_encoded).long()
         categories = np.array(categories)
 
         X_train_num, _ = X_num
@@ -50,7 +66,11 @@ class TabDiffDataset(Dataset):
         self.categories = categories
 
     def __getitem__(self, index):
-        return self.X[index]
+        return {
+            "x": self.X[index],
+            "y": self.y[index],
+            "index": index,
+        }
 
     def __len__(self):
         return self.X.shape[0]
@@ -79,6 +99,8 @@ def preprocess(dataset_path, y_only=False, dequant_dist='none', int_dequant_fact
         y_only = y_only,
     )
 
+    y = dataset.y
+
     if cat_encoding is None:
         X_num = dataset.X_num
         X_cat = dataset.X_cat
@@ -98,7 +120,7 @@ def preprocess(dataset_path, y_only=False, dequant_dist='none', int_dequant_fact
             int_inverse = dataset.int_transform.inverse_transform if dataset.int_transform is not None else lambda x: x
             cat_inverse = dataset.cat_transform.inverse_transform if dataset.cat_transform is not None else lambda x: x
 
-            return X_num, X_cat, categories, d_numerical, num_inverse, int_inverse, cat_inverse
+            return X_num, X_cat, categories, d_numerical, num_inverse, int_inverse, cat_inverse,y
         else:
             return X_num, X_cat, categories, d_numerical
     else:
@@ -148,7 +170,8 @@ def make_dataset(
                 X_num[split] = X_num_t
             if X_cat is not None:
                 if concat:
-                    X_cat_t = concat_y_to_X(X_cat_t, y_t)
+                    pass
+                    #X_cat_t = concat_y_to_X(X_cat_t, y_t)
                 X_cat[split] = X_cat_t  
             if y is not None:
                 y[split] = y_t
@@ -165,7 +188,8 @@ def make_dataset(
                 X_cat_t = X_cat_t[:, :0]
             if X_num is not None:
                 if concat:
-                    X_num_t = concat_y_to_X(X_num_t, y_t)
+                    pass
+                    # X_num_t = concat_y_to_X(X_num_t, y_t)
                 X_num[split] = X_num_t
             if X_cat is not None:
                 X_cat[split] = X_cat_t

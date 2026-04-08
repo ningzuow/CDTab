@@ -1,0 +1,16 @@
+category_encoders==2.9.0
+icecream==2.1.8
+numpy==2.4.4
+pandas==3.0.2
+Pillow==12.2.0
+plotly==6.5.0
+prdc==0.2
+scikit_learn==1.8.0
+scipy==1.17.1
+sdmetrics==0.24.0
+synthcity==0.2.12
+tomli==2.4.1
+tomli_w==1.2.0
+torch==2.2.2+cu118
+tqdm==4.67.1
+xgboost==3.2.0

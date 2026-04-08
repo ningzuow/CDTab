@@ -135,11 +135,6 @@ def preprocess_news_dcr(remove_cat=False):
         json.dump(info, file, indent=4)
     
 def preprocess_diabetes():
-    """
-    Preprocesses the diabetes dataset is aligned with the concurrent work
-    Continuous Diffusion for Mixed-Type Tabular Data (CDTD):
-    https://github.com/muellermarkus/cdtd
-    """
     with open(f'{INFO_PATH}/diabetes.json', 'r') as f:
         info = json.load(f)
 
@@ -203,11 +198,7 @@ def preprocess_diabetes():
         json.dump(info, file, indent=4)
         
 def preprocess_diabetes_dcr():
-    """
-    Preprocesses the diabetes dataset is aligned with the concurrent work
-    Continuous Diffusion for Mixed-Type Tabular Data (CDTD):
-    https://github.com/muellermarkus/cdtd
-    """
+
     with open(f'{INFO_PATH}/diabetes_dcr.json', 'r') as f:
         info = json.load(f)
 
@@ -428,7 +419,7 @@ def process_data(name):
         if "dcr" in name:
             num_train = int(num_data*0.5)
         else:
-            num_train = int(num_data*0.9)
+            num_train = int(num_data*0.7)
         num_test = num_data - num_train
 
         train_df, test_df, seed = train_val_test_split(data_df, cat_columns, num_train, num_test)

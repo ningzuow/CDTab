@@ -1,0 +1,48 @@
+{
+    "name": "abalone_13VR",
+    "task_type": "binclass",
+    "header": "infer",
+    "column_names": [
+        "Sex",
+        "Length",
+        "Diameter",
+        "Height",
+        "Whole_weight",
+        "Shucked_weight",
+        "Viscera_weight",
+        "Shell_weight",
+        "Class"
+    ],
+    "num_col_idx": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "cat_col_idx": [
+        0
+    ],
+    "target_col_idx": [
+        8
+    ],
+    "file_type": "csv",
+    "data_path": "/root/autodl-tmp/Program_2/ConTabDiff/data/abalone_13VR/abalone_13VR.csv",
+    "val_path": null,
+    "test_path": null,
+    "column_info": {
+        "Sex": "str",
+        "Length": "float",
+        "Diameter": "float",
+        "Height": "float",
+        "Whole_weight": "float",
+        "Shucked_weight": "float",
+        "Viscera_weight": "float",
+        "Shell_weight": "float",
+        "Class": "float"
+    },
+    "train_num": 2785,
+    "test_num": 1392
+}

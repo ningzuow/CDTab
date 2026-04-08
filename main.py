@@ -1,9 +1,9 @@
 import torch
-from tabdiff.main import main as tabdiff_main
+from cdtab.main import main as tabdiff_main
 import argparse
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Training of TabDiff')
+    parser = argparse.ArgumentParser(description='Training of CDTab')
 
     # General configs
     parser.add_argument('--dataname', type=str, default='adult', help='Name dataset, one of those in data/ dir')
@@ -42,6 +42,6 @@ if __name__ == '__main__':
         args.device = f'cuda:{args.gpu}'
     else:
         args.device = 'cpu'
-    print(f"当前使用的设备: {args.device}")
+    print(f"Current equipment in use: {args.device}")
     
     tabdiff_main(args)

@@ -1,0 +1,481 @@
+
+==============Starting Trainin Loop, total number of epoch = 3==============
+
+
+
+
+
+
+
+Epoch 1/3: 100%|█| 17/17 [00:15<00:00,  1.12it/s, lr=0.001, DLoss=1.91, CLoss=3.56, Contrast=14.6, TotalLoss=5.47, closs
+==============Routine Generation Evaluation every 1, currently at epoch #1, wiht total_loss=5.475099999999999.==============
+==============Starting Sampling, total samples to generate = 32561==============
+Samples left to generate: 32561
+Samples left to generate: 31561
+Samples left to generate: 30561
+Samples left to generate: 29561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 83.66it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.04it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.11it/s]
+Sampling Progress:  18%|███████████▋                                                     | 9/50 [00:00<00:00, 85.16it/s]
+Samples left to generate: 28561
+Samples left to generate: 27561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.84it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.37it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.71it/s]
+Sampling Progress:  54%|██████████████████████████████████▌                             | 27/50 [00:00<00:00, 82.70it/s]
+Samples left to generate: 25561
+Samples left to generate: 24561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 83.80it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 83.66it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.25it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.40it/s]
+Sampling Progress:   0%|                                                                         | 0/50 [00:00<?, ?it/s]
+Samples left to generate: 22561
+Samples left to generate: 21561
+Samples left to generate: 20561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 83.16it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.45it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.18it/s]
+Sampling Progress:  36%|███████████████████████                                         | 18/50 [00:00<00:00, 83.78it/s]
+Samples left to generate: 18561
+Samples left to generate: 17561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.14it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.15it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.08it/s]
+Sampling Progress:  72%|██████████████████████████████████████████████                  | 36/50 [00:00<00:00, 84.88it/s]
+Samples left to generate: 15561
+Samples left to generate: 14561
+Samples left to generate: 13561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.01it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.41it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.61it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.59it/s]
+Sampling Progress:  18%|███████████▋                                                     | 9/50 [00:00<00:00, 85.07it/s]
+Samples left to generate: 11561
+Samples left to generate: 10561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.96it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.06it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.94it/s]
+Sampling Progress:  72%|██████████████████████████████████████████████                  | 36/50 [00:00<00:00, 85.42it/s]
+Samples left to generate: 8561
+Samples left to generate: 7561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.61it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.24it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.03it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.46it/s]
+Sampling Progress:  18%|███████████▋                                                     | 9/50 [00:00<00:00, 84.02it/s]
+Samples left to generate: 5561
+Samples left to generate: 4561
+Samples left to generate: 3561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.10it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.86it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.07it/s]
+Sampling Progress:  54%|██████████████████████████████████▌                             | 27/50 [00:00<00:00, 85.28it/s]
+Samples left to generate: 1561
+Samples left to generate: 561
+Shape of the generated sample = torch.Size([32561, 14])
+==============Ending Sampling, totoal sampling time = 19.658467292785645==============
+Samples are saved at /root/autodl-tmp/Program_2/CDTab/cdtab/result/adult/learnable_schedule/1/samples.csv
+Evaluating density
+Generating report ...
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.26it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.53it/s]
+(1/2) Evaluating Column Shapes: |█████████████████████████████████████████████████████| 14/14 [00:00<00:00, 114.33it/s]|
+Column Shapes Score: 74.47%
+(2/2) Evaluating Column Pair Trends: |████████████████████████████████████████████████| 91/91 [00:00<00:00, 107.73it/s]|
+Column Pair Trends Score: 45.79%
+Overall Score (Average): 60.13%
+Generating report ...
+(1/2) Evaluating Data Validity: |█████████████████████████████████████████████████████| 14/14 [00:00<00:00, 410.41it/s]|
+Data Validity Score: 100.0%
+(2/2) Evaluating Data Structure: |██████████████████████████████████████████████████████| 1/1 [00:00<00:00, 695.23it/s]|
+Data Structure Score: 100.0%
+Overall Score (Average): 100.0%
+Eval Resutls of the Non-EMA model:
+ {'density/Shape': 0.7446901858928517, 'density/Trend': 0.457876299310146, 'density/Overall': 0.6012832426014989}
+==============Starting Sampling, total samples to generate = 32561==============
+Samples left to generate: 32561
+Samples left to generate: 31561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.35it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 83.86it/s]
+Sampling Progress:  18%|███████████▋                                                     | 9/50 [00:00<00:00, 81.92it/s]
+Samples left to generate: 30561
+Samples left to generate: 29561
+Samples left to generate: 28561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 83.20it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.54it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.58it/s]
+Sampling Progress:  54%|██████████████████████████████████▌                             | 27/50 [00:00<00:00, 84.09it/s]
+Samples left to generate: 26561
+Samples left to generate: 25561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.01it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 83.25it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.49it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.57it/s]
+Sampling Progress:   0%|                                                                         | 0/50 [00:00<?, ?it/s]
+Samples left to generate: 23561
+Samples left to generate: 22561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 83.66it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.41it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.86it/s]
+Sampling Progress:  18%|███████████▋                                                     | 9/50 [00:00<00:00, 85.59it/s]
+Samples left to generate: 20561
+Samples left to generate: 19561
+Samples left to generate: 18561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.29it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.58it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.33it/s]
+Sampling Progress:  90%|█████████████████████████████████████████████████████████▌      | 45/50 [00:00<00:00, 85.16it/s]
+Samples left to generate: 16561
+Samples left to generate: 15561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.65it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.87it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.62it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.99it/s]
+Sampling Progress:  18%|███████████▋                                                     | 9/50 [00:00<00:00, 85.27it/s]
+Samples left to generate: 13561
+Samples left to generate: 12561
+Samples left to generate: 11561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.32it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.51it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.45it/s]
+Sampling Progress:  72%|██████████████████████████████████████████████                  | 36/50 [00:00<00:00, 85.23it/s]
+Samples left to generate: 9561
+Samples left to generate: 8561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.55it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.57it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.68it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.65it/s]
+Sampling Progress:  18%|███████████▋                                                     | 9/50 [00:00<00:00, 82.55it/s]
+Samples left to generate: 6561
+Samples left to generate: 5561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.48it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.31it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.65it/s]
+Sampling Progress:  72%|██████████████████████████████████████████████                  | 36/50 [00:00<00:00, 85.15it/s]
+Samples left to generate: 3561
+Samples left to generate: 2561
+Samples left to generate: 1561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.07it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.75it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.84it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.37it/s]
+Shape of the generated sample = torch.Size([32561, 14])
+==============Ending Sampling, totoal sampling time = 19.52038073539734==============
+Samples are saved at /root/autodl-tmp/Program_2/CDTab/cdtab/result/adult/learnable_schedule/1/ema/samples.csv
+Evaluating density
+Generating report ...
+(1/2) Evaluating Column Shapes: |█████████████████████████████████████████████████████| 14/14 [00:00<00:00, 108.46it/s]|
+Column Shapes Score: 69.04%
+(2/2) Evaluating Column Pair Trends: |████████████████████████████████████████████████| 91/91 [00:00<00:00, 103.66it/s]|
+Column Pair Trends Score: 50.42%
+Overall Score (Average): 59.73%
+Generating report ...
+(1/2) Evaluating Data Validity: |█████████████████████████████████████████████████████| 14/14 [00:00<00:00, 411.36it/s]|
+Data Validity Score: 100.0%
+(2/2) Evaluating Data Structure: |██████████████████████████████████████████████████████| 1/1 [00:00<00:00, 981.12it/s]|
+Data Structure Score: 100.0%
+Overall Score (Average): 100.0%
+Eval Resutls of the EMA model:
+ {'density/Shape': 0.6904293918666943, 'density/Trend': 0.5041833503178639, 'density/Overall': 0.597306371092279}
+
+
+
+
+
+
+Epoch 2/3:  88%|▉| 15/17 [00:12<00:01,  1.29it/s, lr=0.001, DLoss=1.48, CLoss=1.93, Contrast=8.24, TotalLoss=3.4, closs_
+==============Routine Generation Evaluation every 1, currently at epoch #2, wiht total_loss=3.3674.==============
+==============Starting Sampling, total samples to generate = 32561==============
+Samples left to generate: 32561
+Epoch 2/3: 100%|█| 17/17 [00:13<00:00,  1.26it/s, lr=0.001, DLoss=1.46, CLoss=1.91, Contrast=16, TotalLoss=3.37, closs_w
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.15it/s]
+Sampling Progress:  90%|█████████████████████████████████████████████████████████▌      | 45/50 [00:00<00:00, 85.16it/s]
+Samples left to generate: 30561
+Samples left to generate: 29561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.45it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.14it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 83.89it/s]
+Sampling Progress:  72%|██████████████████████████████████████████████                  | 36/50 [00:00<00:00, 83.81it/s]
+Samples left to generate: 27561
+Samples left to generate: 26561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 83.24it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.22it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 83.67it/s]
+Sampling Progress:  72%|██████████████████████████████████████████████                  | 36/50 [00:00<00:00, 83.07it/s]
+Samples left to generate: 24561
+Samples left to generate: 23561
+Samples left to generate: 22561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.23it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 83.96it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 82.39it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 83.32it/s]
+Sampling Progress:  18%|███████████▋                                                     | 9/50 [00:00<00:00, 85.32it/s]
+Samples left to generate: 20561
+Samples left to generate: 19561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.52it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.48it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.11it/s]
+Sampling Progress:  54%|██████████████████████████████████▌                             | 27/50 [00:00<00:00, 83.68it/s]
+Samples left to generate: 17561
+Samples left to generate: 16561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 82.50it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.31it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.25it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.72it/s]
+Sampling Progress:   0%|                                                                         | 0/50 [00:00<?, ?it/s]
+Samples left to generate: 14561
+Samples left to generate: 13561
+Samples left to generate: 12561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 82.88it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.44it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.29it/s]
+Sampling Progress:  36%|███████████████████████                                         | 18/50 [00:00<00:00, 83.98it/s]
+Samples left to generate: 10561
+Samples left to generate: 9561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 83.93it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 82.95it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.52it/s]
+Sampling Progress:  72%|██████████████████████████████████████████████                  | 36/50 [00:00<00:00, 84.27it/s]
+Samples left to generate: 7561
+Samples left to generate: 6561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 83.98it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.10it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 82.88it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 83.83it/s]
+Sampling Progress:  18%|███████████▋                                                     | 9/50 [00:00<00:00, 81.40it/s]
+Samples left to generate: 4561
+Samples left to generate: 3561
+Samples left to generate: 2561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 83.61it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 83.60it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 83.14it/s]
+Sampling Progress:  54%|██████████████████████████████████▌                             | 27/50 [00:00<00:00, 82.87it/s]
+Samples left to generate: 561
+Shape of the generated sample = torch.Size([32561, 14])
+==============Ending Sampling, totoal sampling time = 19.75528860092163==============
+Samples are saved at /root/autodl-tmp/Program_2/CDTab/cdtab/result/adult/learnable_schedule/2/samples.csv
+Evaluating density
+Generating report ...
+(1/2) Evaluating Column Shapes: |█████████████████████████████████████████████████████| 14/14 [00:00<00:00, 117.02it/s]|
+Column Shapes Score: 77.89%
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 83.71it/s]
+(2/2) Evaluating Column Pair Trends: |████████████████████████████████████████████████| 91/91 [00:00<00:00, 103.01it/s]|
+Column Pair Trends Score: 58.11%
+Overall Score (Average): 68.0%
+Generating report ...
+(1/2) Evaluating Data Validity: |█████████████████████████████████████████████████████| 14/14 [00:00<00:00, 405.74it/s]|
+Data Validity Score: 100.0%
+(2/2) Evaluating Data Structure: |██████████████████████████████████████████████████████| 1/1 [00:00<00:00, 976.56it/s]|
+Data Structure Score: 100.0%
+Overall Score (Average): 100.0%
+Eval Resutls of the Non-EMA model:
+ {'density/Shape': 0.7788787638147302, 'density/Trend': 0.5811480143779933, 'density/Overall': 0.6800133890963618}
+==============Starting Sampling, total samples to generate = 32561==============
+Samples left to generate: 32561
+Samples left to generate: 31561
+Samples left to generate: 30561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.22it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.56it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 83.64it/s]
+Sampling Progress:   0%|                                                                         | 0/50 [00:00<?, ?it/s]
+Samples left to generate: 29561
+Samples left to generate: 28561
+Samples left to generate: 27561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 83.91it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 83.30it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.11it/s]
+Sampling Progress:  36%|███████████████████████                                         | 18/50 [00:00<00:00, 83.48it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 83.91it/s]
+Samples left to generate: 25561
+Samples left to generate: 24561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.30it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 83.79it/s]
+Sampling Progress:  90%|█████████████████████████████████████████████████████████▌      | 45/50 [00:00<00:00, 83.76it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.30it/s]
+Samples left to generate: 22561
+Samples left to generate: 21561
+Samples left to generate: 20561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.60it/s]
+Sampling Progress:  18%|███████████▋                                                     | 9/50 [00:00<00:00, 84.94it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.30it/s]
+Samples left to generate: 19561
+Samples left to generate: 18561
+Samples left to generate: 17561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.47it/s]
+Sampling Progress:  52%|█████████████████████████████████▎                              | 26/50 [00:00<00:00, 83.88it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.47it/s]
+Samples left to generate: 15561
+Samples left to generate: 14561
+Sampling Progress:  54%|██████████████████████████████████▌                             | 27/50 [00:00<00:00, 84.12it/s]
+Sampling Progress:  54%|██████████████████████████████████▌                             | 27/50 [00:00<00:00, 84.12it/s]
+Samples left to generate: 12561
+Samples left to generate: 11561
+Sampling Progress:  36%|███████████████████████                                         | 18/50 [00:00<00:00, 83.35it/s]
+Sampling Progress:  36%|███████████████████████                                         | 18/50 [00:00<00:00, 83.35it/s]
+Samples left to generate: 9561
+Samples left to generate: 8561
+Samples left to generate: 7561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 83.98it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 83.98it/s]
+Samples left to generate: 5561
+Samples left to generate: 4561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.10it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.10it/s]
+Samples left to generate: 2561
+Samples left to generate: 1561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.27it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.27it/s]
+Shape of the generated sample = torch.Size([32561, 14])
+==============Ending Sampling, totoal sampling time = 19.768463850021362==============
+Samples are saved at /root/autodl-tmp/Program_2/CDTab/cdtab/result/adult/learnable_schedule/2/ema/samples.csv
+Evaluating density
+Generating report ...
+(1/2) Evaluating Column Shapes: |█████████████████████████████████████████████████████| 14/14 [00:00<00:00, 110.04it/s]|
+Column Shapes Score: 69.15%
+(2/2) Evaluating Column Pair Trends: |████████████████████████████████████████████████| 91/91 [00:00<00:00, 104.09it/s]|
+Column Pair Trends Score: 50.55%
+Overall Score (Average): 59.85%
+Generating report ...
+(1/2) Evaluating Data Validity: |█████████████████████████████████████████████████████| 14/14 [00:00<00:00, 418.76it/s]|
+Data Validity Score: 100.0%
+(2/2) Evaluating Data Structure: |█████████████████████████████████████████████████████| 1/1 [00:00<00:00, 1012.63it/s]|
+Data Structure Score: 100.0%
+Overall Score (Average): 100.0%
+Eval Resutls of the EMA model:
+ {'density/Shape': 0.6914516489928794, 'density/Trend': 0.5055360731446669, 'density/Overall': 0.5984938610687731}
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.27it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.27it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.27it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.27it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.27it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.27it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.27it/s]
+==============Routine Generation Evaluation every 1, currently at epoch #3, wiht total_loss=3.0305.==============
+==============Starting Sampling, total samples to generate = 32561==============
+Sampling Progress:  18%|███████████▋                                                     | 9/50 [00:00<00:00, 85.04it/s]
+Sampling Progress:  18%|███████████▋                                                     | 9/50 [00:00<00:00, 85.04it/s]
+Samples left to generate: 31561
+Samples left to generate: 30561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 82.79it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 82.79it/s]
+Samples left to generate: 28561
+Samples left to generate: 27561
+Samples left to generate: 26561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 83.58it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 83.58it/s]
+Samples left to generate: 24561
+Samples left to generate: 23561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.26it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.26it/s]
+Samples left to generate: 21561
+Samples left to generate: 20561
+Samples left to generate: 19561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.89it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.89it/s]
+Samples left to generate: 17561
+Samples left to generate: 16561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.43it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.43it/s]
+Samples left to generate: 14561
+Samples left to generate: 13561
+Samples left to generate: 12561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.43it/s]
+Samples left to generate: 11561
+Samples left to generate: 10561
+Samples left to generate: 9561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.36it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.36it/s]
+Samples left to generate: 7561
+Samples left to generate: 6561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.25it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.25it/s]
+Samples left to generate: 4561
+Samples left to generate: 3561
+Samples left to generate: 2561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 83.12it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 83.12it/s]
+Samples left to generate: 561
+Shape of the generated sample = torch.Size([32561, 14])
+==============Ending Sampling, totoal sampling time = 19.596033811569214==============
+Samples are saved at /root/autodl-tmp/Program_2/CDTab/cdtab/result/adult/learnable_schedule/3/samples.csv
+Evaluating density
+Generating report ...
+(1/2) Evaluating Column Shapes: |█████████████████████████████████████████████████████| 14/14 [00:00<00:00, 120.68it/s]|
+Column Shapes Score: 82.26%
+(2/2) Evaluating Column Pair Trends: |████████████████████████████▍                   | 54/91 [00:00<00:00, 123.33it/s]|
+(2/2) Evaluating Column Pair Trends: |████████████████████████████████████████████████| 91/91 [00:00<00:00, 104.98it/s]|
+Column Pair Trends Score: 72.55%
+Overall Score (Average): 77.4%
+Generating report ...
+(1/2) Evaluating Data Validity: |█████████████████████████████████████████████████████| 14/14 [00:00<00:00, 410.80it/s]|
+Data Validity Score: 100.0%
+(2/2) Evaluating Data Structure: |█████████████████████████████████████████████████████| 1/1 [00:00<00:00, 1010.68it/s]|
+Data Structure Score: 100.0%
+Overall Score (Average): 100.0%
+Eval Resutls of the Non-EMA model:
+ {'density/Shape': 0.8225703843774542, 'density/Trend': 0.7254946260031208, 'density/Overall': 0.7740325051902874}
+==============Starting Sampling, total samples to generate = 32561==============
+Samples left to generate: 32561
+Samples left to generate: 31561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.09it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.09it/s]
+Samples left to generate: 29561
+Samples left to generate: 28561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.55it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.55it/s]
+Samples left to generate: 26561
+Samples left to generate: 25561
+Samples left to generate: 24561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.38it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.38it/s]
+Samples left to generate: 22561
+Samples left to generate: 21561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.16it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.16it/s]
+Samples left to generate: 19561
+Samples left to generate: 18561
+Samples left to generate: 17561
+Sampling Progress:  36%|███████████████████████                                         | 18/50 [00:00<00:00, 84.71it/s]
+Sampling Progress:  36%|███████████████████████                                         | 18/50 [00:00<00:00, 84.71it/s]
+Samples left to generate: 15561
+Samples left to generate: 14561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.17it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.17it/s]
+Samples left to generate: 12561
+Samples left to generate: 11561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.12it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.12it/s]
+Samples left to generate: 9561
+Samples left to generate: 8561
+Samples left to generate: 7561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.83it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.83it/s]
+Samples left to generate: 5561
+Samples left to generate: 4561
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.64it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 84.64it/s]
+Samples left to generate: 2561
+Samples left to generate: 1561
+Samples left to generate: 561
+Shape of the generated sample = torch.Size([32561, 14])
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.14it/s]
+Sampling Progress: 100%|████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 85.14it/s]
+Samples are saved at /root/autodl-tmp/Program_2/CDTab/cdtab/result/adult/learnable_schedule/3/ema/samples.csv
+Evaluating density
+Generating report ...
+(1/2) Evaluating Column Shapes: |█████████████████████████████████████████████████████| 14/14 [00:00<00:00, 110.34it/s]|
+Column Shapes Score: 69.08%
+(2/2) Evaluating Column Pair Trends: |████████████████████████████████████████████████| 91/91 [00:00<00:00, 106.99it/s]|
+Column Pair Trends Score: 50.4%
+Overall Score (Average): 59.74%
+Generating report ...
+(1/2) Evaluating Data Validity: |█████████████████████████████████████████████████████| 14/14 [00:00<00:00, 415.50it/s]|
+Data Validity Score: 100.0%
+(2/2) Evaluating Data Structure: |█████████████████████████████████████████████████████| 1/1 [00:00<00:00, 1015.08it/s]|
+Data Structure Score: 100.0%
+Overall Score (Average): 100.0%
+Eval Resutls of the EMA model:
+ {'density/Shape': 0.6907562509048951, 'density/Trend': 0.5039556553665199, 'density/Overall': 0.5973559531357076}
+==============Ending Trainnig Loop, totoal training time = 169.11497831344604==============

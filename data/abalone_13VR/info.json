@@ -1,0 +1,130 @@
+{
+    "name": "abalone_13VR",
+    "task_type": "binclass",
+    "header": "infer",
+    "column_names": [
+        "Sex",
+        "Length",
+        "Diameter",
+        "Height",
+        "Whole_weight",
+        "Shucked_weight",
+        "Viscera_weight",
+        "Shell_weight",
+        "Class"
+    ],
+    "num_col_idx": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "cat_col_idx": [
+        0
+    ],
+    "target_col_idx": [
+        8
+    ],
+    "file_type": "csv",
+    "data_path": "/root/autodl-tmp/Program_2/ConTabDiff/data/abalone_13VR/abalone_13VR.csv",
+    "val_path": null,
+    "test_path": null,
+    "column_info": {
+        "1": {},
+        "type": "categorical",
+        "max": 1.005,
+        "min": 0.0015,
+        "2": {},
+        "3": {},
+        "4": {},
+        "5": {},
+        "6": {},
+        "7": {},
+        "0": {},
+        "categorizes": [
+            0,
+            1
+        ],
+        "8": {}
+    },
+    "train_num": 2923,
+    "test_num": 1254,
+    "int_col_idx": [],
+    "int_columns": [],
+    "int_col_idx_wrt_num": [],
+    "val_num": 0,
+    "idx_mapping": {
+        "0": 7,
+        "1": 0,
+        "2": 1,
+        "3": 2,
+        "4": 3,
+        "5": 4,
+        "6": 5,
+        "7": 6,
+        "8": 8
+    },
+    "inverse_idx_mapping": {
+        "7": 0,
+        "0": 1,
+        "1": 2,
+        "2": 3,
+        "3": 4,
+        "4": 5,
+        "5": 6,
+        "6": 7,
+        "8": 8
+    },
+    "idx_name_mapping": {
+        "0": "Sex",
+        "1": "Length",
+        "2": "Diameter",
+        "3": "Height",
+        "4": "Whole_weight",
+        "5": "Shucked_weight",
+        "6": "Viscera_weight",
+        "7": "Shell_weight",
+        "8": "Class"
+    },
+    "metadata": {
+        "columns": {
+            "1": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "2": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "3": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "4": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "5": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "6": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "7": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "0": {
+                "sdtype": "categorical"
+            },
+            "8": {
+                "sdtype": "categorical"
+            }
+        }
+    }
+}
