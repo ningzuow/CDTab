@@ -1,0 +1,234 @@
+wandb_version: 1
+
+data:
+  desc: null
+  value:
+    dequant_dist: none
+    int_dequant_factor: 0
+unimodmlp_params:
+  desc: null
+  value:
+    num_layers: 2
+    d_token: 4
+    n_head: 1
+    factor: 32
+    bias: true
+    dim_t: 1024
+    use_mlp: true
+    d_numerical: 6
+    categories:
+    - 10
+    - 17
+    - 8
+    - 16
+    - 7
+    - 6
+    - 3
+    - 43
+diffusion_params:
+  desc: null
+  value:
+    num_timesteps: 50
+    scheduler: power_mean_per_column
+    cat_scheduler: log_linear_per_column
+    noise_dist: uniform_t
+    sampler_params:
+      stochastic_sampler: true
+      second_order_correction: true
+    edm_params:
+      precond: true
+      sigma_data: 1.0
+      net_conditioning: sigma
+    noise_dist_params:
+      P_mean: -1.2
+      P_std: 1.2
+    noise_schedule_params:
+      sigma_min: 0.002
+      sigma_max: 80
+      rho: 7
+      eps_max: 0.001
+      eps_min: 1.0e-05
+      rho_init: 7.0
+      rho_offset: 5.0
+      k_init: -6.0
+      k_offset: 1.0
+train:
+  desc: null
+  value:
+    main:
+      steps: 3
+      lr: 0.001
+      weight_decay: 0
+      ema_decay: 0.997
+      batch_size: 2000
+      check_val_every: 1
+      lr_scheduler: reduce_lr_on_plateau
+      factor: 0.9
+      reduce_lr_patience: 50
+      closs_weight_schedule: anneal
+      c_lambda: 1.0
+      d_lambda: 1.0
+sample:
+  desc: null
+  value:
+    batch_size: 1000
+model_save_path:
+  desc: null
+  value: /root/autodl-tmp/Program_2/CDTab/cdtab/ckpt/adult/learnable_schedule
+result_save_path:
+  desc: null
+  value: /root/autodl-tmp/Program_2/CDTab/cdtab/result/adult/learnable_schedule
+deterministic:
+  desc: null
+  value: false
+project_name:
+  desc: null
+  value: cdtab_adult
+_wandb:
+  desc: null
+  value:
+    python_version: 3.10.19
+    cli_version: 0.17.3
+    framework: xgboost
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1775639921
+    t:
+      1:
+      - 1
+      - 5
+      - 6
+      - 53
+      - 55
+      - 105
+      2:
+      - 1
+      - 5
+      - 6
+      - 11
+      - 49
+      - 53
+      - 55
+      - 105
+      3:
+      - 7
+      - 13
+      - 16
+      - 23
+      4: 3.10.19
+      5: 0.17.3
+      8:
+      - 5
+      13: linux-x86_64
+    m:
+    - 1: epoch
+      6:
+      - 3
+    - 1: lr
+      5: 1
+      6:
+      - 1
+    - 1: closs_weight
+      5: 1
+      6:
+      - 1
+    - 1: dloss_weight
+      5: 1
+      6:
+      - 1
+    - 1: loss/c_loss
+      5: 1
+      6:
+      - 1
+    - 1: loss/d_loss
+      5: 1
+      6:
+      - 1
+    - 1: loss/total_loss
+      5: 1
+      6:
+      - 1
+    - 1: num_noise/rho_col_0
+      5: 1
+      6:
+      - 1
+    - 1: num_noise/rho_col_1
+      5: 1
+      6:
+      - 1
+    - 1: num_noise/rho_col_2
+      5: 1
+      6:
+      - 1
+    - 1: num_noise/rho_col_3
+      5: 1
+      6:
+      - 1
+    - 1: num_noise/rho_col_4
+      5: 1
+      6:
+      - 1
+    - 1: num_noise/rho_col_5
+      5: 1
+      6:
+      - 1
+    - 1: cat_noise/k_col_0
+      5: 1
+      6:
+      - 1
+    - 1: cat_noise/k_col_1
+      5: 1
+      6:
+      - 1
+    - 1: cat_noise/k_col_2
+      5: 1
+      6:
+      - 1
+    - 1: cat_noise/k_col_3
+      5: 1
+      6:
+      - 1
+    - 1: cat_noise/k_col_4
+      5: 1
+      6:
+      - 1
+    - 1: cat_noise/k_col_5
+      5: 1
+      6:
+      - 1
+    - 1: cat_noise/k_col_6
+      5: 1
+      6:
+      - 1
+    - 1: cat_noise/k_col_7
+      5: 1
+      6:
+      - 1
+    - 1: density/Shape
+      5: 1
+      6:
+      - 1
+    - 1: density/Trend
+      5: 1
+      6:
+      - 1
+    - 1: density/Overall
+      5: 1
+      6:
+      - 1
+    - 1: ema.density/Shape
+      5: 1
+      6:
+      - 1
+    - 1: ema.density/Trend
+      5: 1
+      6:
+      - 1
+    - 1: ema.density/Overall
+      5: 1
+      6:
+      - 1
+    - 1: training_time
+      5: 1
+      6:
+      - 1

@@ -1,1 +1,29 @@
-run-20260408_171841-9432o4ii/logs/debug.log
+2026-04-08 17:18:41,430 INFO    MainThread:5487 [wandb_setup.py:_flush():76] Current SDK version is 0.17.3
+2026-04-08 17:18:41,430 INFO    MainThread:5487 [wandb_setup.py:_flush():76] Configure stats pid to 5487
+2026-04-08 17:18:41,430 INFO    MainThread:5487 [wandb_setup.py:_flush():76] Loading settings from /root/.config/wandb/settings
+2026-04-08 17:18:41,430 INFO    MainThread:5487 [wandb_setup.py:_flush():76] Loading settings from /root/autodl-tmp/Program_2/CDTab/wandb/settings
+2026-04-08 17:18:41,430 INFO    MainThread:5487 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2026-04-08 17:18:41,430 INFO    MainThread:5487 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2026-04-08 17:18:41,430 INFO    MainThread:5487 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'main.py', 'program_abspath': '/root/autodl-tmp/Program_2/CDTab/main.py', 'program': '/root/autodl-tmp/Program_2/CDTab/main.py'}
+2026-04-08 17:18:41,430 INFO    MainThread:5487 [wandb_setup.py:_flush():76] Applying login settings: {}
+2026-04-08 17:18:41,430 INFO    MainThread:5487 [wandb_init.py:_log_setup():520] Logging user logs to /root/autodl-tmp/Program_2/CDTab/wandb/run-20260408_171841-9432o4ii/logs/debug.log
+2026-04-08 17:18:41,430 INFO    MainThread:5487 [wandb_init.py:_log_setup():521] Logging internal logs to /root/autodl-tmp/Program_2/CDTab/wandb/run-20260408_171841-9432o4ii/logs/debug-internal.log
+2026-04-08 17:18:41,430 INFO    MainThread:5487 [wandb_init.py:init():560] calling init triggers
+2026-04-08 17:18:41,430 INFO    MainThread:5487 [wandb_init.py:init():567] wandb.init called with sweep_config: {}
+config: {'data': {'dequant_dist': 'none', 'int_dequant_factor': 0}, 'unimodmlp_params': {'num_layers': 2, 'd_token': 4, 'n_head': 1, 'factor': 32, 'bias': True, 'dim_t': 1024, 'use_mlp': True, 'd_numerical': 6, 'categories': [10, 17, 8, 16, 7, 6, 3, 43]}, 'diffusion_params': {'num_timesteps': 50, 'scheduler': 'power_mean_per_column', 'cat_scheduler': 'log_linear_per_column', 'noise_dist': 'uniform_t', 'sampler_params': {'stochastic_sampler': True, 'second_order_correction': True}, 'edm_params': {'precond': True, 'sigma_data': 1.0, 'net_conditioning': 'sigma'}, 'noise_dist_params': {'P_mean': -1.2, 'P_std': 1.2}, 'noise_schedule_params': {'sigma_min': 0.002, 'sigma_max': 80, 'rho': 7, 'eps_max': 0.001, 'eps_min': 1e-05, 'rho_init': 7.0, 'rho_offset': 5.0, 'k_init': -6.0, 'k_offset': 1.0}}, 'train': {'main': {'steps': 3, 'lr': 0.001, 'weight_decay': 0, 'ema_decay': 0.997, 'batch_size': 2000, 'check_val_every': 1, 'lr_scheduler': 'reduce_lr_on_plateau', 'factor': 0.9, 'reduce_lr_patience': 50, 'closs_weight_schedule': 'anneal', 'c_lambda': 1.0, 'd_lambda': 1.0}}, 'sample': {'batch_size': 1000}, 'model_save_path': '/root/autodl-tmp/Program_2/CDTab/cdtab/ckpt/adult/learnable_schedule', 'result_save_path': '/root/autodl-tmp/Program_2/CDTab/cdtab/result/adult/learnable_schedule', 'deterministic': False, 'project_name': 'cdtab_adult'}
+2026-04-08 17:18:41,430 INFO    MainThread:5487 [wandb_init.py:init():610] starting backend
+2026-04-08 17:18:41,430 INFO    MainThread:5487 [wandb_init.py:init():614] setting up manager
+2026-04-08 17:18:41,432 INFO    MainThread:5487 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2026-04-08 17:18:41,433 INFO    MainThread:5487 [wandb_init.py:init():622] backend started and connected
+2026-04-08 17:18:41,435 INFO    MainThread:5487 [wandb_init.py:init():711] updated telemetry
+2026-04-08 17:18:41,440 INFO    MainThread:5487 [wandb_init.py:init():744] communicating run to backend with 90.0 second timeout
+2026-04-08 17:18:43,157 INFO    MainThread:5487 [wandb_run.py:_on_init():2402] communicating current version
+2026-04-08 17:18:44,520 INFO    MainThread:5487 [wandb_run.py:_on_init():2411] got version response upgrade_message: "wandb version 0.25.1 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2026-04-08 17:18:44,521 INFO    MainThread:5487 [wandb_init.py:init():795] starting run threads in backend
+2026-04-08 17:18:44,926 INFO    MainThread:5487 [wandb_run.py:_console_start():2380] atexit reg
+2026-04-08 17:18:44,926 INFO    MainThread:5487 [wandb_run.py:_redirect():2235] redirect: wrap_raw
+2026-04-08 17:18:44,926 INFO    MainThread:5487 [wandb_run.py:_redirect():2300] Wrapping output streams.
+2026-04-08 17:18:44,926 INFO    MainThread:5487 [wandb_run.py:_redirect():2325] Redirects installed.
+2026-04-08 17:18:44,928 INFO    MainThread:5487 [wandb_init.py:init():838] run started, returning control to user process
+2026-04-08 17:21:58,831 WARNING MsgRouterThr:5487 [router.py:message_loop():77] message_loop has been closed
