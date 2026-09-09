@@ -5,4 +5,4 @@ We hope to apply the deep learning approach for the enhancement of tabular data 
 ## Related Work
 Our model code has learned from TabDiff and MoCo v3. If you want to understand the more fundamental principles and details, you can visit the following link:
 <br>TabDiff：https://proceedings.iclr.cc/paper_files/paper/2025/hash/5c882988ce5fac487974ee4f415b96a9-Abstract-Conference.html
-<br>MoCo v3:https://ieeexplore.ieee.org/abstract/document/9711302/
+<br>MoCo v3：https://ieeexplore.ieee.org/abstract/document/9711302/
